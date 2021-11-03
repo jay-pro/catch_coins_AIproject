@@ -56,7 +56,6 @@ def main():
         screen.fill(0)
         screen.blit(game_images['background'], (0,0))
         
-        
         countdown_text = 'Count down: ' + str((30000 - pygame.time.get_ticks()) // 60000) + ":" + str((30000 - pygame.time.get_ticks()) // 1000 % 60).zfill(2)
         countdown_text = font.render(countdown_text, True, (0,0,0))
         countdown_rect = countdown_text.get_rect()
