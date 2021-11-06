@@ -15,11 +15,13 @@ class Hero(pygame.sprite.Sprite):
         self.switch_frame_count = 0
         self.switch_frame_freq = 1
         self.frame_index =0
-        
+
+    #Hàm Di chuyển sang trái, phải - được thực hiện bởi Player    
     def move(self, screensize, direction):
         assert direction in ['left', 'right']
         if direction != self.direction:
             self.images = self.images_left.copy() if direction == 'left' else self.images_right.copy()
+            #dong tren từ self.image là cùng 1 hangf?
             self.image = self.images[0]
             self.direction = direction
             self.switch_frame_count = 0
@@ -34,6 +36,16 @@ class Hero(pygame.sprite.Sprite):
             self.rect.left = max(self.rect.left-self.speed, 0)
         else:
             self.rect.left = min(self.rect.left+self.speed, screensize[0])
+
+    #AI Training - Hàm dự đoán Apple và Coins di chuyển để Hero đi bắt:
+    #def predict_move():
+
+
+    #Hàm Di chuyển sang trái, phải - được thực hiện bởi Game (random)
+    
+
+        
+
             
             
     def draw(self, screen):

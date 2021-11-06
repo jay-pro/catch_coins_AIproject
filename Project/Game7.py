@@ -11,7 +11,7 @@ def initGame():
 
     pygame.init()
     screen = pygame.display.set_mode(cfg.SCREENSIZE)
-    pygame.display.set_caption('catch coins')
+    pygame.display.set_caption('Catch Coins Game')
 
     game_images = {}
     for key, value in cfg.IMAGE_PATHS.items():
@@ -29,7 +29,7 @@ def initGame():
 
     return screen, game_images, game_sounds
 
-
+#Thực thi chương trình chính
 def main():
     
     screen, game_images, game_sounds = initGame()
@@ -69,10 +69,15 @@ def main():
                 
         key_pressed = pygame.key.get_pressed()
         
+        #Hero di chuyển sang trái hoặc phải khi player điều khiển bằng cách nhấn nút left/right
         if key_pressed[pygame.K_a] or key_pressed[pygame.K_LEFT]:
             hero.move(cfg.SCREENSIZE, 'left')
         if key_pressed[pygame.K_d] or key_pressed[pygame.K_RIGHT]:
             hero.move(cfg.SCREENSIZE, 'right')
+
+        #Hero tự di chuyển sang trái hoặc phải do đã được trained
+        
+        
             
         
         generate_food_count += 1
